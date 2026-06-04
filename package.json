@@ -1,0 +1,176 @@
+{
+  "name": "opencode-context-menu",
+  "displayName": "OpenCode Context Menu",
+  "description": "Add files, folders, and selected code to OpenCode from the VSCode context menu.",
+  "version": "1.0.0",
+  "publisher": "ascendlin",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ascendlin/opencode-context-menu.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ascendlin/opencode-context-menu/issues"
+  },
+  "homepage": "https://github.com/ascendlin/opencode-context-menu#readme",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "opencode",
+    "context menu",
+    "ai",
+    "assistant"
+  ],
+  "activationEvents": [
+    "onCommand:opencodeContextMenu.addFile",
+    "onCommand:opencodeContextMenu.addFolder",
+    "onCommand:opencodeContextMenu.addSelection"
+  ],
+  "main": "./out/extension.js",
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "opencodeContextMenu.addFile",
+        "title": "Add File to OpenCode",
+        "category": "OpenCode",
+        "enablement": "resourceScheme == file && !explorerResourceIsFolder"
+      },
+      {
+        "command": "opencodeContextMenu.addFolder",
+        "title": "Add Folder to OpenCode",
+        "category": "OpenCode"
+      },
+      {
+        "command": "opencodeContextMenu.addSelection",
+        "title": "Add Selection to OpenCode",
+        "category": "OpenCode",
+        "enablement": "editorTextFocus && editorHasSelection"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "opencodeContextMenu.addFile",
+          "group": "opencode@1",
+          "when": "editorTextFocus && resourceScheme == file"
+        },
+        {
+          "command": "opencodeContextMenu.addSelection",
+          "group": "opencode@2",
+          "when": "editorTextFocus"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "opencodeContextMenu.addFile",
+          "group": "opencode@1",
+          "when": "resourceScheme == file && !explorerResourceIsFolder"
+        },
+        {
+          "command": "opencodeContextMenu.addFolder",
+          "group": "opencode@1",
+          "when": "resourceScheme == file && explorerResourceIsFolder"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "opencodeContextMenu.addFile",
+          "when": "editorTextFocus && resourceScheme == file"
+        },
+        {
+          "command": "opencodeContextMenu.addFolder"
+        },
+        {
+          "command": "opencodeContextMenu.addSelection",
+          "when": "editorTextFocus"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "opencodeContextMenu.addFile",
+        "key": "ctrl+alt+o f",
+        "mac": "cmd+alt+o f",
+        "when": "editorTextFocus && resourceScheme == file"
+      },
+      {
+        "command": "opencodeContextMenu.addSelection",
+        "key": "ctrl+alt+o s",
+        "mac": "cmd+alt+o s",
+        "when": "editorTextFocus && editorHasSelection"
+      }
+    ],
+    "configuration": {
+      "title": "OpenCode Context Menu",
+      "properties": {
+        "opencodeContextMenu.integrationMethod": {
+          "type": "string",
+          "enum": [
+            "auto",
+            "terminal",
+            "clipboard",
+            "cli"
+          ],
+          "default": "auto",
+          "markdownDescription": "How content is sent to OpenCode. `auto` sends to an OpenCode terminal when possible and falls back to clipboard, `terminal` sends to a VSCode integrated terminal, `clipboard` copies a prepared prompt, and `cli` runs OpenCode CLI."
+        },
+        "opencodeContextMenu.terminalNamePattern": {
+          "type": "string",
+          "default": "opencode",
+          "markdownDescription": "Case-insensitive regular expression used to find the OpenCode integrated terminal by name."
+        },
+        "opencodeContextMenu.terminalUseActiveWhenNoMatch": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "When no terminal name matches, send to the active integrated terminal. Disable this if you want to avoid sending text to the wrong terminal."
+        },
+        "opencodeContextMenu.terminalSubmitOnSend": {
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "Submit the text after sending it to the terminal. Disabled by default so the text is inserted into the OpenCode input box for review."
+        },
+        "opencodeContextMenu.cliPath": {
+          "type": "string",
+          "default": "opencode",
+          "markdownDescription": "OpenCode CLI executable path. Use `opencode` when it is available in PATH."
+        },
+        "opencodeContextMenu.continueLastSession": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "When using CLI mode, pass `--continue` to continue the latest OpenCode session unless a session id is configured."
+        },
+        "opencodeContextMenu.sessionId": {
+          "type": "string",
+          "default": "",
+          "markdownDescription": "Optional OpenCode session id for CLI mode. When set, the extension passes `--session <id>` instead of `--continue`."
+        },
+        "opencodeContextMenu.attachUrl": {
+          "type": "string",
+          "default": "",
+          "markdownDescription": "Optional OpenCode server URL for CLI mode, passed as `--attach <url>`."
+        },
+        "opencodeContextMenu.showNotifications": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Show success and fallback notifications."
+        }
+      }
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.10",
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^3.2.1",
+    "typescript": "^5.5.3"
+  }
+}

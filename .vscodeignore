@@ -1,0 +1,9 @@
+.vscode/**
+.claude/**
+.spec-workflow/**
+src/**
+node_modules/**
+.gitignore
+tsconfig.json
+*.vsix
+**/*.map
