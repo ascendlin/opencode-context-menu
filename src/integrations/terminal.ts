@@ -11,11 +11,11 @@ export function sendFolderToTerminal(config: OpenCodeConfig, relativePath: strin
 }
 
 export function sendSelectionToTerminal(config: OpenCodeConfig, selectionContext: SelectionContext): void {
-  const source = `${selectionContext.relativePath}:${selectionContext.startLine}-${selectionContext.endLine}`;
-  const escapedCode = JSON.stringify(selectionContext.text);
-  const message = `Selected ${selectionContext.languageId} code from ${source}. Newlines are escaped as \\n: ${escapedCode}`;
+  sendToOpenCodeTerminal(config, `@${selectionContext.relativePath} ${toSingleLine(selectionContext.text)}`);
+}
 
-  sendToOpenCodeTerminal(config, message);
+function toSingleLine(text: string): string {
+  return text.replace(/\r\n|\r|\n/g, '\\n');
 }
 
 function sendToOpenCodeTerminal(config: OpenCodeConfig, text: string): void {

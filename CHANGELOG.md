@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.2
+
+- Simplify selected-code output to `@relative-path <single-line-selection>` without explanatory text.
+
 ## 1.0.1
 
 - Add a 128x128 colorful extension icon for VSCode Marketplace.

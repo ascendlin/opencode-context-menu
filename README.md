@@ -72,7 +72,13 @@ The extension looks for a VSCode integrated terminal whose name matches `opencod
 
 If your OpenCode terminal is not named `opencode`, rename the terminal tab or update `terminalNamePattern`.
 
-In terminal mode, selected code is sent as a single escaped line. Real newlines are represented as `\n` to prevent the terminal from treating selected-code line breaks as Enter and submitting the OpenCode prompt immediately.
+In terminal mode, selected code is sent as `@relative-path <selected-code>`. Real newlines inside the selected code are represented as `\n` to prevent the terminal from submitting the OpenCode prompt immediately.
+
+Example:
+
+```text
+@src\extension.ts export function activate(context) {\n  // ...\n}
+```
 
 By default, content is inserted but not submitted. To submit immediately after sending, enable:
 
@@ -84,7 +90,7 @@ By default, content is inserted but not submitted. To submit immediately after s
 
 #### Clipboard
 
-The extension copies content that can be pasted into an OpenCode session. Files and folders are copied as native relative path references, such as `@src\commands` on Windows or `@src/commands` on macOS/Linux.
+The extension copies content that can be pasted into an OpenCode session. Files and folders are copied as native relative path references, such as `@src\commands` on Windows or `@src/commands` on macOS/Linux. Selected code is copied as `@relative-path <selected-code>` without extra explanatory text.
 
 #### CLI
 
@@ -185,7 +191,13 @@ macOS/Linux 示例：
 
 如果你的 OpenCode 终端名称不是 `opencode`，可以右键终端标签重命名，或修改 `terminalNamePattern`。
 
-在 Terminal 模式下，选中代码会被转成单行转义文本发送，例如把真实换行表示为 `\n`。这是为了避免终端把选中代码里的换行解释为 Enter，导致 OpenCode 会话立即执行。
+在 Terminal 模式下，选中代码会按 `@相对路径 <选中代码片段>` 发送。选中代码中的真实换行会表示为 `\n`，避免终端把换行解释为 Enter，导致 OpenCode 会话立即执行。
+
+示例：
+
+```text
+@src\extension.ts export function activate(context) {\n  // ...\n}
+```
 
 默认不会自动回车提交。如需发送后立即提交，开启：
 
@@ -197,7 +209,7 @@ macOS/Linux 示例：
 
 #### Clipboard
 
-扩展会把可直接粘贴到 OpenCode 会话的内容写入剪贴板。当前文件和文件夹会复制为系统原生相对路径，例如 Windows 的 `@src\commands` 或 macOS/Linux 的 `@src/commands`。
+扩展会把可直接粘贴到 OpenCode 会话的内容写入剪贴板。当前文件和文件夹会复制为系统原生相对路径，例如 Windows 的 `@src\commands` 或 macOS/Linux 的 `@src/commands`。选中代码会复制为 `@相对路径 <选中代码片段>`，不附加额外说明文字。
 
 #### CLI
 

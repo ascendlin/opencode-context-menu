@@ -10,14 +10,9 @@ export async function copyFolderPrompt(relativePath: string): Promise<void> {
 }
 
 export async function copySelectionPrompt(selectionContext: SelectionContext): Promise<void> {
-  const source = `${selectionContext.relativePath}:${selectionContext.startLine}-${selectionContext.endLine}`;
-  const content = [
-    `Selected code from ${source}:`,
-    '',
-    `\`\`\`${selectionContext.languageId}`,
-    selectionContext.text,
-    '```'
-  ].join('\n');
+  await vscode.env.clipboard.writeText(`@${selectionContext.relativePath} ${toSingleLine(selectionContext.text)}`);
+}
 
-  await vscode.env.clipboard.writeText(content);
+function toSingleLine(text: string): string {
+  return text.replace(/\r\n|\r|\n/g, '\\n');
 }
