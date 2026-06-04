@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.1
+
+- Add a 128x128 colorful extension icon for VSCode Marketplace.
+
 ## 1.0.0
 
 - Initial release.
