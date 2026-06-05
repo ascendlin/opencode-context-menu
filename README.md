@@ -15,6 +15,26 @@ Add files, folders, and selected code to OpenCode directly from VSCode context m
 - `Add Selection to OpenCode` stays visible and is disabled when no code is selected.
 - Supports VSCode integrated terminal, clipboard, OpenCode CLI, and automatic fallback modes.
 
+### Installation
+
+Install from the VSCode Marketplace:
+
+1. Open VSCode Extensions with `Ctrl+Shift+X` or `Cmd+Shift+X` on macOS.
+2. Search for `OpenCode Context Menu`.
+3. Install the extension published by `ascendlin`.
+
+Extension ID:
+
+```text
+ascendlin.opencode-context-menu
+```
+
+Marketplace page:
+
+```text
+https://marketplace.visualstudio.com/items?itemName=ascendlin.opencode-context-menu
+```
+
 ### Usage
 
 1. Right-click in the editor and choose `Add File to OpenCode`, or select code and choose `Add Selection to OpenCode`.
@@ -133,6 +153,26 @@ npm run package
 - OpenCode 菜单使用独立右键菜单分组，会通过分隔线和其他 VSCode 菜单项隔开。
 - 右键菜单始终显示；未选中代码时，`Add Selection to OpenCode` 会置灰。
 - 支持 VSCode 集成终端、剪贴板、CLI、自动降级四种集成方式。
+
+### 安装
+
+从 VSCode 插件市场安装：
+
+1. 在 VSCode 中打开扩展面板：Windows/Linux 使用 `Ctrl+Shift+X`，macOS 使用 `Cmd+Shift+X`。
+2. 搜索 `OpenCode Context Menu`。
+3. 安装发布者为 `ascendlin` 的扩展。
+
+扩展 ID：
+
+```text
+ascendlin.opencode-context-menu
+```
+
+插件市场地址：
+
+```text
+https://marketplace.visualstudio.com/items?itemName=ascendlin.opencode-context-menu
+```
 
 ### 使用方式
 

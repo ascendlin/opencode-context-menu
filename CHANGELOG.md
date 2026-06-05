@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.3
+
+- Add VSCode Marketplace installation instructions and extension ID to README.
+
 ## 1.0.2
 
 - Simplify selected-code output to `@relative-path <single-line-selection>` without explanatory text.
