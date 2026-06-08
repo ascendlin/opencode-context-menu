@@ -2,7 +2,7 @@
   "name": "opencode-context-menu",
   "displayName": "OpenCode Context Menu",
   "description": "Add files, folders, and selected code to OpenCode from the VSCode context menu.",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "publisher": "ascendlin",
   "license": "MIT",
   "icon": "images/icon.png",
@@ -69,6 +69,13 @@
           "command": "opencodeContextMenu.addSelection",
           "group": "opencode@2",
           "when": "editorTextFocus"
+        }
+      ],
+      "editor/title/context": [
+        {
+          "command": "opencodeContextMenu.addFile",
+          "group": "opencode@1",
+          "when": "resourceScheme == file"
         }
       ],
       "explorer/context": [

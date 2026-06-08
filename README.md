@@ -11,6 +11,7 @@ Add files, folders, and selected code to OpenCode directly from VSCode context m
 - `Add File to OpenCode`: Send the current file as a native relative path reference, or copy it to the clipboard.
 - `Add Folder to OpenCode`: Send an Explorer folder as a native relative path reference, or copy it to the clipboard.
 - `Add Selection to OpenCode`: Send selected code to OpenCode, or copy it to the clipboard.
+- `Add File to OpenCode` is available from the editor body context menu, Explorer file context menu, and editor tab context menu.
 - OpenCode actions use a dedicated context menu group, separated from other VSCode menu items.
 - `Add Selection to OpenCode` stays visible and is disabled when no code is selected.
 - Supports VSCode integrated terminal, clipboard, OpenCode CLI, and automatic fallback modes.
@@ -40,6 +41,7 @@ https://marketplace.visualstudio.com/items?itemName=ascendlin.opencode-context-m
 1. Right-click in the editor and choose `Add File to OpenCode`, or select code and choose `Add Selection to OpenCode`.
 2. Right-click a file in Explorer and choose `Add File to OpenCode`.
 3. Right-click a folder in Explorer and choose `Add Folder to OpenCode`.
+4. Right-click an open editor tab and choose `Add File to OpenCode`.
 
 ### Keyboard Shortcuts
 
@@ -150,6 +152,7 @@ npm run package
 - `Add File to OpenCode`: 将当前文件以系统原生相对路径形式发送到 OpenCode，或复制到剪贴板。
 - `Add Folder to OpenCode`: 将资源管理器中的文件夹以系统原生相对路径形式发送到 OpenCode，或复制到剪贴板。
 - `Add Selection to OpenCode`: 将选中代码发送到 OpenCode，或复制到剪贴板。
+- `Add File to OpenCode` 支持编辑器正文右键、资源管理器文件右键和已打开文件的标签页右键。
 - OpenCode 菜单使用独立右键菜单分组，会通过分隔线和其他 VSCode 菜单项隔开。
 - 右键菜单始终显示；未选中代码时，`Add Selection to OpenCode` 会置灰。
 - 支持 VSCode 集成终端、剪贴板、CLI、自动降级四种集成方式。
@@ -179,6 +182,7 @@ https://marketplace.visualstudio.com/items?itemName=ascendlin.opencode-context-m
 1. 在编辑器中右键，选择 `Add File to OpenCode` 或选中代码后选择 `Add Selection to OpenCode`。
 2. 在资源管理器中文件右键，选择 `Add File to OpenCode`。
 3. 在资源管理器中文件夹右键，选择 `Add Folder to OpenCode`。
+4. 在已打开文件的标签页上右键，选择 `Add File to OpenCode`。
 
 ### 快捷键
 

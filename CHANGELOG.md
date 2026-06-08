@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.4
+
+- Add `Add File to OpenCode` to the editor tab context menu.
+
 ## 1.0.3
 
 - Add VSCode Marketplace installation instructions and extension ID to README.
