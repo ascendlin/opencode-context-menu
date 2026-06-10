@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.5
+
+- Move the editor tab `Add File to OpenCode` action into the VSCode Chat/Codex menu group.
+
 ## 1.0.4
 
 - Add `Add File to OpenCode` to the editor tab context menu.
